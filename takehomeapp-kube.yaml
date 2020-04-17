@@ -4,7 +4,7 @@ kind: Service
 metadata:
   name: takehome
   labels:
-    app: takehomw
+    app: takehome
 spec:
   type: NodePort
   selector:
@@ -15,12 +15,15 @@ spec:
       name: http
 
 ---
-apiVersion: v1
-kind: ReplicationController
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: takehome
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: takehome
   template:
     metadata:
       labels:
@@ -28,12 +31,6 @@ spec:
     spec:
       containers:
         - name: takehome
-          image: qyodeveloper/takehomeapp:1.0
+          image: qyodeveloper/takehomeapp:1.1
           ports:
             - containerPort: 8080
-          livenessProbe:
-            httpGet:
-              path: /health
-              port: 8080
-            initialDelaySeconds: 30
-            timeoutSeconds: 1

@@ -21,6 +21,8 @@
         <spring.version>2.2.6.RELEASE</spring.version>
     </properties>
 
+    <packaging>war</packaging>
+
     <dependencies>
 
         <dependency>
@@ -47,6 +49,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
             <version>${spring.version}</version>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>

@@ -5,9 +5,9 @@
     $("#chkRegister").on('click', showHidePasswordConfirm);
 
     const cognito = {
-        userPoolId: 'us-east-2_8N40YnTeJ',
-        region: 'us-east-2',
-        clientId: '7uk0f58t41te79js9fpvrjlegu'
+        userPoolId: 'region_poolId',
+        region: 'region',
+        clientId: 'secretClientId'
     }
 
     AWS.config.region = cognito.region;
